@@ -91,7 +91,6 @@ body {
 }
 
 .nav-container {
-  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -102,17 +101,14 @@ body {
   padding: 1.75rem;
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
-  position: absolute;
-  top: 87vh;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 100;
   display: flex;
   justify-content: center;
   gap: 3rem;
   backdrop-filter: blur(10px);
   min-width: 600px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: -120px;
+  margin-bottom: 4rem;
 }
 
 .nav a {
@@ -147,7 +143,7 @@ body {
 
 .container {
   max-width: 1200px;
-  margin: 6rem auto 0;
+  margin: 3rem auto 0;
   padding: 2rem;
 }
 
