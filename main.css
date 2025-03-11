@@ -10,6 +10,15 @@
   --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
+.light-mode {
+  --primary-color: #4f46e5;
+  --secondary-color: #4338ca;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #e2e8f0;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+}
 
 * {
   margin: 0;
@@ -146,6 +155,16 @@ body {
   margin: 3rem auto 0;
   padding: 2rem;
 }
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .section {
   background: var(--bg-secondary);
@@ -261,4 +280,33 @@ body {
   .section {
     padding: 2rem;
   }
+}
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#theme-toggle:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.light-mode #theme-toggle {
+  border-color: var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.light-mode #theme-toggle:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }

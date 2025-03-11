@@ -14,6 +14,7 @@
   <body>
     <header class="header">
       <h1>My Projects</h1>
+      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
     </header>
 
     <div class="container">
@@ -168,5 +169,59 @@
         <a href="index.html" class="back-button">← Back to Home</a>
       </center>
     </div>
+    <script>
+      const backButton = document.querySelector(".back-button");
+      backButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute("href"); // Go to index.html
+      });
+
+      const cards = document.querySelectorAll(".project-card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.boxShadow = "0 12px 25px rgba(59, 130, 246, 0.5)";
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.boxShadow = "";
+        });
+      });
+
+      const techTags = document.querySelectorAll(".tech-tag");
+      techTags.forEach((tag) => {
+        tag.addEventListener("mouseenter", () => {
+          tag.style.boxShadow = "0 4px 12px rgba(139, 92, 246, 0.4)";
+        });
+        tag.addEventListener("mouseleave", () => {
+          tag.style.boxShadow = "";
+        });
+      });
+      const themeToggle = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        const isLightMode = document.body.classList.contains("light-mode");
+        themeToggle.textContent = isLightMode ? "☀️" : "🌙";
+        localStorage.setItem("theme", isLightMode ? "light" : "dark");
+      });
+    </script>
   </body>
 </html>

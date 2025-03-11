@@ -12,6 +12,7 @@
   </head>
   <body>
     <div class="hero">
+      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
       <img src="/profile.jpg" alt="Om Tilva" />
       <h1>Om Tilva</h1>
       <p>Computer Science Engineering Student</p>
@@ -85,5 +86,64 @@
         </a>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".nav a").forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId.startsWith("#")) {
+              document.querySelector(targetId).scrollIntoView({
+                behavior: "smooth",
+              });
+            } else {
+              window.location.href = targetId;
+            }
+          });
+        });
+
+        const typewriterText =
+          "A passionate Computer Science Engineering student from Mangalore, currently pursuing my BTech at VIT Vellore.";
+        const typewriterElement = document.querySelector(".section p");
+        let index = 0;
+        function typeWriter() {
+          if (index < typewriterText.length) {
+            typewriterElement.innerHTML += typewriterText.charAt(index);
+            index++;
+            setTimeout(typeWriter, 40);
+          }
+        }
+        typewriterElement.innerHTML = "";
+        typeWriter();
+
+        const sections = document.querySelectorAll(".section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        sections.forEach((section) => observer.observe(section));
+
+        const themeToggle = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "light") {
+          document.body.classList.add("light-mode");
+          themeToggle.textContent = "☀️";
+        }
+
+        themeToggle.addEventListener("click", () => {
+          document.body.classList.toggle("light-mode");
+          const isLightMode = document.body.classList.contains("light-mode");
+          themeToggle.textContent = isLightMode ? "☀️" : "🌙";
+          localStorage.setItem("theme", isLightMode ? "light" : "dark");
+        });
+      });
+    </script>
   </body>
 </html>

@@ -14,6 +14,8 @@
   <body>
     <header class="header">
       <h1>Experience & Activities</h1>
+      <!-- 🌙 Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
     </header>
 
     <div class="container">
@@ -119,5 +121,69 @@
         <a href="index.html" class="back-button">← Back to Home</a>
       </center>
     </div>
+
+    <!-- 💻 JavaScript -->
+    <script>
+      // --- Smooth Scroll for Back Button ---
+      const backButton = document.querySelector(".back-button");
+      backButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute("href");
+      });
+
+      // --- Scroll Animation for Sections ---
+      const sections = document.querySelectorAll(
+        ".featured-role, .experience-card, .skills-section"
+      );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      sections.forEach((section) => observer.observe(section));
+
+      // --- Dynamic Hover Glow for Experience Cards ---
+      const expCards = document.querySelectorAll(".experience-card");
+      expCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.boxShadow = "0 10px 30px rgba(59, 130, 246, 0.5)";
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.boxShadow = "";
+        });
+      });
+
+      // --- Hover Glow for Skill Tags ---
+      const skillTags = document.querySelectorAll(".skill-tag");
+      skillTags.forEach((tag) => {
+        tag.addEventListener("mouseenter", () => {
+          tag.style.boxShadow = "0 4px 12px rgba(139, 92, 246, 0.4)";
+        });
+        tag.addEventListener("mouseleave", () => {
+          tag.style.boxShadow = "";
+        });
+      });
+
+      // --- Theme Toggle with Local Storage ---
+      const themeToggle = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        const isLightMode = document.body.classList.contains("light-mode");
+        themeToggle.textContent = isLightMode ? "☀️" : "🌙";
+        localStorage.setItem("theme", isLightMode ? "light" : "dark");
+      });
+    </script>
   </body>
 </html>
