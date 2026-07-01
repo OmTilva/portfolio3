@@ -1,154 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Om Tilva - Portfolio</title>
+    <meta name="description" content="Om Tilva — Computer Science Engineer at VIT Vellore building real-time, production-grade full-stack systems." />
+    <meta name="theme-color" content="#0B0E14" />
+    <title>Om Tilva — Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/main.css" />
-    <!-- Vercel Web Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
-    <div class="hero">
-      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
-      <img src="/profile.jpg" alt="Om Tilva" />
-      <h1>Om Tilva</h1>
-      <p>Computer Science Engineering Student</p>
-    </div>
-
-    <div class="container">
-      <nav class="nav">
-        <a href="Education.html">Education</a>
-        <a href="Experience.html">Experience</a>
-        <a href="Projects.html">Projects</a>
-      </nav>
-
-      <div class="section">
-        <h2>Hello, I'm Om!</h2>
-        <p>
-          A passionate Computer Science Engineering student from Mangalore,
-          currently pursuing my BTech at VIT Vellore. I'm dedicated to learning
-          and exploring new technologies to create innovative solutions.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>Educational Journey</h2>
-        <ul>
-          <li>
-            <strong>BTech in Computer Science Engineering</strong><br />VIT
-            Vellore - Present
-          </li>
-          <li>
-            <strong>Pre-University Education</strong><br />Boscoss
-            Pre-University College (2021-2023)
-          </li>
-          <li>
-            <strong>School Education</strong><br />ST Aloysius School (Graduated
-            2021)
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <h3>Let's Connect!</h3>
-      <p>
-        <a
-          href="mailto:omtilva1910@gmail.com"
-          style="color: white; text-decoration: none"
-          >omtilva1910@gmail.com</a
-        >
-      </p>
-      <div class="social-links">
-        <a
-          href="https://www.linkedin.com/in/om-tilva-ab899428a"
-          target="_blank"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/145/145807.png"
-            alt="LinkedIn"
-          />
-        </a>
-        <a href="https://www.instagram.com/_om_tilva_/" target="_blank">
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png"
-            alt="Instagram"
-          />
-        </a>
-        <a href="https://github.com/OmTilva" target="_blank">
-          <img
-            src="https://cdn-icons-png.flaticon.com/128/1051/1051326.png"
-            alt="GitHub"
-          />
-        </a>
-      </div>
-    </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".nav a").forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href");
-            if (targetId.startsWith("#")) {
-              document.querySelector(targetId).scrollIntoView({
-                behavior: "smooth",
-              });
-            } else {
-              window.location.href = targetId;
-            }
-          });
-        });
-
-        const typewriterText =
-          "A passionate Computer Science Engineering student from Mangalore, currently pursuing my BTech at VIT Vellore.";
-        const typewriterElement = document.querySelector(".section p");
-        let index = 0;
-        function typeWriter() {
-          if (index < typewriterText.length) {
-            typewriterElement.innerHTML += typewriterText.charAt(index);
-            index++;
-            setTimeout(typeWriter, 40);
-          }
-        }
-        typewriterElement.innerHTML = "";
-        typeWriter();
-
-        const sections = document.querySelectorAll(".section");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.2 }
-        );
-        sections.forEach((section) => observer.observe(section));
-
-        const themeToggle = document.getElementById("theme-toggle");
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme === "light") {
-          document.body.classList.add("light-mode");
-          themeToggle.textContent = "☀️";
-        }
-
-        themeToggle.addEventListener("click", () => {
-          document.body.classList.toggle("light-mode");
-          const isLightMode = document.body.classList.contains("light-mode");
-          themeToggle.textContent = isLightMode ? "☀️" : "🌙";
-          localStorage.setItem("theme", isLightMode ? "light" : "dark");
-        });
-      });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

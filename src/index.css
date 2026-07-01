@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", "Menlo", monospace;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-hi: var(--surface-hi);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-live: var(--live);
+
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+}
+
+:root {
+  --canvas: #0b0e14;
+  --surface: #12161f;
+  --surface-hi: #1a1f2b;
+  --ink: #eceef1;
+  --muted: #8a92a6;
+  --faint: #5b6472;
+  --hairline: rgba(236, 238, 241, 0.1);
+  --accent: #5b8cff;
+  --accent-dim: rgba(91, 140, 255, 0.14);
+  --live: #34d399;
+}
+
+.light {
+  --canvas: #f7f8fb;
+  --surface: #ffffff;
+  --surface-hi: #eef1f6;
+  --ink: #10141c;
+  --muted: #565f72;
+  --faint: #8991a3;
+  --hairline: rgba(16, 20, 28, 0.1);
+  --accent: #3d63e0;
+  --accent-dim: rgba(61, 99, 224, 0.08);
+  --live: #059669;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--hairline) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
