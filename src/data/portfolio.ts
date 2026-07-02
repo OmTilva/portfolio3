@@ -7,9 +7,10 @@ export const profile = {
   email: "omtilva1910@gmail.com",
   github: "https://github.com/OmTilva",
   linkedin: "https://www.linkedin.com/in/om-tilva-ab899428a",
-  instagram: "https://www.instagram.com/om_tilva/",
+  instagram: "https://www.instagram.com/_om_tilva_/",
   resumeFile: "/Om_Tilva_Resume.pdf",
-  tagline: "I build real-time, production-grade systems — from live collaborative editors to distributed backends.",
+  tagline:
+    "I build real-time, production-grade systems — from live collaborative editors to distributed backends.",
   summary:
     "Computer Science undergrad at VIT Vellore with production internship experience at a Reliance Industries subsidiary. Comfortable across the stack — C++, Python, TypeScript, React, Node — with a focus on distributed systems, real-time infrastructure, and interfaces that hold up under real users.",
   availability: "Open to Software Engineering internships",
@@ -74,14 +75,29 @@ export const experience: ExperienceEntry[] = [
 ];
 
 export const skills = [
-  { category: "Languages", items: ["C++", "Python", "Java", "JavaScript", "TypeScript"] },
-  { category: "Frameworks", items: ["React.js", "Next.js 15", "Node.js", "Express.js"] },
+  {
+    category: "Languages",
+    items: ["C++", "Python", "Java", "JavaScript", "TypeScript"],
+  },
+  {
+    category: "Frameworks",
+    items: ["React.js", "Next.js 15", "Node.js", "Express.js"],
+  },
   { category: "Databases", items: ["PostgreSQL", "MongoDB", "Redis"] },
-  { category: "Cloud & DevOps", items: ["Docker", "AWS (EC2, S3)", "REST APIs", "Microservices"] },
+  {
+    category: "Cloud & DevOps",
+    items: ["Docker", "AWS (EC2, S3)", "REST APIs", "Microservices"],
+  },
   { category: "Tools", items: ["Git", "GitHub", "Prisma ORM", "Postman"] },
   {
     category: "Core CS",
-    items: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks"],
+    items: [
+      "Data Structures & Algorithms",
+      "OOP",
+      "DBMS",
+      "Operating Systems",
+      "Computer Networks",
+    ],
   },
 ] as const;
 
@@ -173,6 +189,7 @@ export const education: EducationEntry[] = [
     degree: "Pre-University Education",
     school: "Boscoss Pre-University College",
     duration: "2021 — 2023",
+    detail: "90% aggregate",
     points: ["Physics, Chemistry, Mathematics, and Computer Science."],
   },
   {
@@ -180,6 +197,7 @@ export const education: EducationEntry[] = [
     degree: "Secondary Education",
     school: "St Aloysius School",
     duration: "Graduated 2021",
+    detail: "93% aggregate",
     points: [],
   },
 ];

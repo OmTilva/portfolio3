@@ -76,17 +76,21 @@ export function Home() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="relative mx-auto aspect-square w-full max-w-xs md:max-w-sm"
+          className="relative mx-auto aspect-square w-full max-w-[260px] sm:max-w-xs md:max-w-sm"
         >
-          <div className="absolute inset-[-35%]">
+          <div className="absolute inset-[-35%] -z-20">
             <Suspense fallback={null}>
               <HeroShape />
             </Suspense>
           </div>
+          <div
+            aria-hidden="true"
+            className="absolute inset-[6%] -z-10 rounded-full bg-accent-dim blur-[60px]"
+          />
           <img
-            src="/profile.png"
+            src="/profile.jpg"
             alt="Om Tilva"
-            className="relative h-full w-full rounded-[2rem] border border-hairline object-cover shadow-2xl"
+            className="relative h-full w-full rounded-[2rem] border border-hairline object-contain shadow-2xl"
           />
         </motion.div>
       </section>
