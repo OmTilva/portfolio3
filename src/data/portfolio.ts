@@ -13,7 +13,7 @@ export const profile = {
     "I build real-time, production-grade systems — from live collaborative editors to distributed backends.",
   summary:
     "Computer Science undergrad at VIT Vellore with production internship experience at a Reliance Industries subsidiary. Comfortable across the stack — C++, Python, TypeScript, React, Node — with a focus on distributed systems, real-time infrastructure, and interfaces that hold up under real users.",
-  availability: "Open to Software Engineering internships",
+  availability: "Open to SWE internships & full-time roles",
 } as const;
 
 export const stats = [
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     tagline: "Financial simulation platform",
     stack: ["React", "Node.js", "MongoDB"],
     points: [
-      "Virtual investment simulation platform built for VIT GraVITas'24.",
+      "Virtual investment simulation platform built for Bulls & Bears Finance Club's flagship event at VIT GraVITas'24.",
       "Led a 5-engineer team and onboarded 250+ students through interactive trading workflows.",
     ],
     link: "https://github.com/OmTilva",

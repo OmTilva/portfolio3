@@ -15,7 +15,7 @@ const HeroShape = lazy(() =>
 );
 
 const facts = [
-  { key: "role", value: "Software Engineer (intern-track)" },
+  { key: "role", value: "Software Engineer" },
   { key: "based", value: profile.location },
   { key: "focus", value: "distributed systems, real-time infra" },
   { key: "status", value: profile.availability },
