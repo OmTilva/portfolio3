@@ -7,7 +7,7 @@ export const profile = {
   email: "omtilva1910@gmail.com",
   github: "https://github.com/OmTilva",
   linkedin: "https://www.linkedin.com/in/om-tilva-ab899428a",
-  instagram: "https://www.instagram.com/_om_tilva_/",
+  instagram: "https://www.instagram.com/om_tilva/",
   resumeFile: "/Om_Tilva_Resume.pdf",
   tagline:
     "I build real-time, production-grade systems — from live collaborative editors to distributed backends.",
